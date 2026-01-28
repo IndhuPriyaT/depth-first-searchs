@@ -1,6 +1,6 @@
 <h1>ExpNo 2 : Implement Depth First Search Traversal of a Graph</h1> 
-<h3>Name: </h3>
-<h3>Register Number:     </h3>
+<h3>Name: Indhu Priya.T</h3>
+<h3>Register Number:  212224110024   </h3>
 <H3>Aim:</H3>
 <p> To Implement Depth First Search Traversal of a Graph using Python 3.</p>
 <h3>Theory:</h3>
@@ -55,6 +55,47 @@ Now, the Stack becomes empty, which means we have visited all the nodes, and our
 </ol></B>
 
 <hr>
+
+<h3>Code</h3>
+```
+from collections import defaultdict
+import networkx as nx
+import matplotlib.pyplot as plt
+def dfs(graph,start,visited,path):
+    visited[start] = True 
+    path.append(start)    
+    for neighbour in graph[start]:
+        if visited[neighbour]==False: 
+            dfs(graph, neighbour, visited, path)
+            visited[neighbour]=True
+    return path 
+ def dfs(graph,start,visited,path):
+    '''Type in your code here'''
+    visited[start] = True 
+    path.append(start)    
+    for neighbour in graph[start]:
+        if visited[neighbour]==False: 
+            dfs(graph, neighbour, visited, path)
+            visited[neighbour]=True
+    return path 
+ graph = defaultdict(list)
+G = nx.Graph()
+nodes , edges = map(int, input().split())
+for _ in range(edges):
+    u,v=map(str,input().split())
+    G.add_edge(u,v)
+    graph[u].append(v)
+    graph[v].append(u)
+#print(graph)
+start = input()
+visited = defaultdict(bool)
+path = []
+traversedpath = dfs(graph,start,visited,path)
+print(traversedpath)
+pos=nx.spring_layout(G)
+nx.draw(G,pos,with_labels=True,node_color="lightblue",edge_color="red",node_size=2000)
+plt.show()
+```
 <h3>Sample Input</h3>
 <hr>
 8 9 <BR>
