@@ -57,45 +57,45 @@ Now, the Stack becomes empty, which means we have visited all the nodes, and our
 <hr>
 
 <h3>Code</h3>
-```
-from collections import defaultdict
-import networkx as nx
-import matplotlib.pyplot as plt
-def dfs(graph,start,visited,path):
-    visited[start] = True 
-    path.append(start)    
-    for neighbour in graph[start]:
-        if visited[neighbour]==False: 
-            dfs(graph, neighbour, visited, path)
-            visited[neighbour]=True
-    return path 
- def dfs(graph,start,visited,path):
-    '''Type in your code here'''
-    visited[start] = True 
-    path.append(start)    
-    for neighbour in graph[start]:
-        if visited[neighbour]==False: 
-            dfs(graph, neighbour, visited, path)
-            visited[neighbour]=True
-    return path 
- graph = defaultdict(list)
-G = nx.Graph()
-nodes , edges = map(int, input().split())
-for _ in range(edges):
-    u,v=map(str,input().split())
-    G.add_edge(u,v)
-    graph[u].append(v)
-    graph[v].append(u)
-#print(graph)
-start = input()
-visited = defaultdict(bool)
-path = []
-traversedpath = dfs(graph,start,visited,path)
-print(traversedpath)
-pos=nx.spring_layout(G)
-nx.draw(G,pos,with_labels=True,node_color="lightblue",edge_color="red",node_size=2000)
-plt.show()
-```
+<hr>
+from collections import defaultdict<br>
+import networkx as nx<br>
+import matplotlib.pyplot as plt<br>
+def dfs(graph,start,visited,path):<br>
+    visited[start] = True<br>
+    path.append(start)<br>
+    for neighbour in graph[start]:<br>
+        if visited[neighbour]==False:<br>
+            dfs(graph, neighbour, visited, path)<br>
+            visited[neighbour]=True<br>
+    return path<br>
+ def dfs(graph,start,visited,path):<br>
+    '''Type in your code here'''<br>
+    visited[start] = True<br> 
+    path.append(start)<br>    
+    for neighbour in graph[start]:<br>
+        if visited[neighbour]==False:<br> 
+            dfs(graph, neighbour, visited, path)<br>
+            visited[neighbour]=True<br>
+    return path<br> 
+ graph = defaultdict(list)<br>
+G = nx.Graph()<br>
+nodes , edges = map(int, input().split())<br>
+for _ in range(edges):<br>
+    u,v=map(str,input().split())<br>
+    G.add_edge(u,v)<br>
+    graph[u].append(v)<br>
+    graph[v].append(u)<br>
+#print(graph)<br>
+start = input()<br>
+visited = defaultdict(bool)<br>
+path = []<br>
+traversedpath = dfs(graph,start,visited,path)<br>
+print(traversedpath)<br>
+pos=nx.spring_layout(G)<br>
+nx.draw(G,pos,with_labels=True,node_color="lightblue",edge_color="red",node_size=2000)<br>
+plt.show()<br>
+</hr>
 <h3>Sample Input</h3>
 <hr>
 8 9 <BR>
